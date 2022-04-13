@@ -10,8 +10,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
+      - name: Grant Permissions to gradlew
+        run: chmod +x gradlew
       - name: Test
-        run: gradle test
+        run: ./gradlew test --tests "*"
 
       - name: Get Allure history
         uses: actions/checkout@v2
